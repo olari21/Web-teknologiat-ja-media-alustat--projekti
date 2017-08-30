@@ -1,0 +1,183 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+		<form id="myform">
+		Number of sheets to be printed: 
+		<input id="fr1" type="number" name="sheets" required/> * <br/> 
+		Number up, or tickets per sheet: 
+		<input id="fr2" type="number" name="nroup" required/> * <br/> 
+		Start number:
+		<input id="fr3" type="number" name="stnro" value = "0"/><br/>
+		Prefix:
+		<input id = "pfix" type="text" name="prefix"/><br/>
+		Suffix:
+		<input id = "sfix" type="text" name="Suffix"/><br/>
+		No. of digits - puts in leading zeros:
+		<input id="zeros" type="number" name="stnro" value = "0"/><br/>
+		Counterfoil numbers too?:
+   		<input type="checkbox" name="checkfield" id="cb"/><br/>
+   		Reverse page order?:
+   		<input type="checkbox" name="checkfield" id="reverse"/><br/>
+   		Simplified output:
+   		<input type="checkbox" name="checkfield" id="simple"/><br/>
+
+		<button onclick="myFunction()">Generate numbers</button>
+
+	
+		</form>
+	  <script>
+
+  
+
+function myFunction() {
+	var f1 = document.getElementById("fr1").value;
+  var f2 = document.getElementById("fr2").value;
+  var f3 = document.getElementById("fr3").value;
+  var px = document.getElementById("pfix").value;
+  var sx = document.getElementById("sfix").value;
+  var ze = document.getElementById("zeros").value;
+  var cb = document.getElementById("cb").checked;
+  var reverse = document.getElementById("reverse").checked;
+  var simple = document.getElementById("simple").checked;
+  var x = +f1 * +f2;
+  var y = parseInt(f3);
+  var z = parseInt(f1);
+  var f = x+y;
+  var h = y+z;
+  var op = "";
+  var i = y;
+  var j = 0;
+  var num = ze;	
+if (simple === true){
+if (reverse === false){	  
+if (cb === false) {
+  for (j = y; j < h; j++){
+  	
+		for (i = j; i < f; ){
+		var s = i+"";
+		while (s.length < ze) s = "0" + s;
+    	op +=  px  + s + sx + "<br> ";
+    	i += z;
+	}
+
+	
+
+}
+}else{
+  for (j = y; j < h; j++){
+  	
+		for (i = j; i < f; ){
+		var s = i+"";
+		while (s.length < ze) s = "0" + s;
+    	op +=  px  + s + sx +" , " + px  + s + sx + "<br> ";
+    	i += z;
+	}
+
+	
+
+}
+}
+}else{
+if (cb === false) {
+  for (j = z; j > 0; j--){
+  	
+		for (i = j; i < f; ){
+		var s = i+"";
+		while (s.length < ze) s = "0" + s;
+    	op +=  px  + s + sx + "<br> ";
+    	i += z;
+	
+	}
+
+	
+
+}
+}else{
+  for (j = z; j > 0; j--){
+  	
+		for (i = j; i < f; ){
+		var s = i+"";
+		while (s.length < ze) s = "0" + s;
+    	op +=  px  + s + sx +" , " + px  + s + sx + "<br> ";
+    	i += z;
+	}
+
+	
+
+}
+}
+}
+}else{
+if (reverse === false){	  
+if (cb === false) {
+  for (j = y; j < h; j++){
+  	
+		for (i = j; i < f; ){
+		var s = i+"";
+		while (s.length < ze) s = "0" + s;
+    	op += '"'  + px  + s + sx + '"' + "<br> ";
+    	i += z;
+	}
+
+	
+
+}
+}else{
+  for (j = y; j < h; j++){
+  	
+		for (i = j; i < f; ){
+		var s = i+"";
+		while (s.length < ze) s = "0" + s;
+    	op += '"' + px  + s + sx +"' , '" + px  + s + sx + '"' + "<br> ";
+    	i += z;
+	}
+
+	
+
+}
+}
+}else{
+if (cb === false) {
+  for (j = z; j > 0; j--){
+  	
+		for (i = j; i < f; ){
+		var s = i+"";
+		while (s.length < ze) s = "0" + s;
+    	op += '"' + px  + s + sx + '"' + "<br> ";
+    	i += z;
+	
+	}
+
+	
+
+}
+}else{
+  for (j = z; j > 0; j--){
+  	
+		for (i = j; i < f; ){
+		var s = i+"";
+		while (s.length < ze) s = "0" + s;
+    	op += '"' + px  + s + sx +'" , "' + px  + s + sx + '"' + "<br> ";
+    	i += z;
+	}
+
+	
+
+}
+}
+}
+}
+document.write(op);
+}
+
+
+
+</script>
+</body>
+</html>
